@@ -34,10 +34,7 @@ class MyShoppingPage extends StatelessWidget {
                     Expanded(
                         child: Row(children: [
                       CircleButton(Icons.shopping_cart, () {
-                        Navigator.push((context),
-                            MaterialPageRoute(builder: (context) {
-                          return MySummaryPage();
-                        }));
+                        Navigator.of(context).push(createRoute());
                         return null;
                       })
                     ], textDirection: TextDirection.rtl)),
@@ -54,9 +51,7 @@ class MyShoppingPage extends StatelessWidget {
             price,
             gapBetweenWidget(0, 10),
             AcceptButtonItem("Add to cart", Colors.green, () {
-              Navigator.push((context), MaterialPageRoute(builder: (context) {
-                return MySummaryPage();
-              }));
+              Navigator.of(context).push(createRoute());
               return null;
             }),
           ],
@@ -73,8 +68,6 @@ var gapBetweenWidget =
     (double width, double height) => SizedBox(height: height, width: width);
 
 var menuButton = CircleButton(Icons.menu_sharp, blank);
-
-var cartButton = CircleButton(Icons.shopping_cart, blank);
 
 var shoesName = Text(
   "Space Shoes",
@@ -100,6 +93,22 @@ var rowOfRating = Row(
 
 var price =
     Text("2300 THB", style: TextStyle(fontFamily: 'Sora', fontSize: 18));
+
+Route createRoute() {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) => MySummaryPage(),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      final begin = Offset(1.0, 0.0);
+      final end = Offset.zero;
+      final tween = Tween(begin: begin, end: end);
+      final offsetAnimation = animation.drive(tween);
+      return SlideTransition(
+        position: offsetAnimation,
+        child: child,
+      );
+    },
+  );
+}
 
 //Summary Page
 class MySummaryPage extends StatelessWidget {
@@ -142,8 +151,6 @@ class MySummaryPage extends StatelessWidget {
     );
   }
 }
-
-var backButton = CircleButton(Icons.navigate_before, blank);
 
 var userButton = CircleButton(Icons.person, blank);
 
