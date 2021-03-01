@@ -154,19 +154,6 @@ class MySummaryPage extends StatelessWidget {
 
 var userButton = CircleButton(Icons.person, blank);
 
-var menuBarInSummary = Container(
-    child: Row(
-      children: [
-        Expanded(
-            child:
-                Row(children: [backButton], textDirection: TextDirection.ltr)),
-        Expanded(
-            child:
-                Row(children: [userButton], textDirection: TextDirection.rtl)),
-      ],
-    ),
-    width: 297);
-
 var summaryTitle = TextItem("YOUR CART", 24);
 
 var shoesImageInSummary = ShoesImageItem(125, 121);
