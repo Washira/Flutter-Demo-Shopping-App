@@ -26,4 +26,21 @@ Scaffold = widget จัดการ layout อัติโนมัติขอ
 
 ดังนั้น จากส่วนบนสุดของ widget tree จะสามารถเขียน Source code เริ่มต้นได้ดังนี้
 
-<script src="https://gist.github.com/Washira/5f342f5d7b68724bd2ac57bcfac1f7ea.js"></script>
+```dart
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: MyShoppingPage(),
+      ),
+    );
+  }
+}
+```
