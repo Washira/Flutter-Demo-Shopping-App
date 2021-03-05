@@ -94,7 +94,7 @@ var rowOfRating = Row(
 var price =
     Text("2300 THB", style: TextStyle(fontFamily: 'Sora', fontSize: 18));
 
-Route createRoute() {
+Route<dynamic> createRoute() {
   return PageRouteBuilder(
     pageBuilder: (context, animation, secondaryAnimation) => MySummaryPage(),
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
