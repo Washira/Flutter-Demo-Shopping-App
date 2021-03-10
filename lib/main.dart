@@ -56,7 +56,7 @@ class MyShoppingPage extends StatelessWidget {
             }),
           ],
         ),
-        margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 80),
+        margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
       ),
     );
   }
